@@ -1,6 +1,11 @@
+import APPID from "../components/AppId"
+
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <h1>Home</h1>
+      <button onClick={() => {APPID()}}>Click Here</button>
+    </div>
   )
 }
 
