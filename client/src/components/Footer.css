@@ -4,10 +4,7 @@
     text-align: center;
     font-size: 15px;
     font-weight: bold;
-    position: fixed;
-    bottom: 0;
     width:100vw;
-    margin-top: 20px;
 }
 .logo-footer{
     width: auto;
@@ -50,7 +47,7 @@ label {
 input:focus~label {
     top: 5px;
     font-size: 14px;
-    color: #4285f4;
+    color: #201e1e;
 }
 
 .input-group {

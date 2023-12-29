@@ -42,7 +42,7 @@ function Footer() {
       <hr />
       <div className="row">
         <div className="col">
-          <p>© 2021 DigiMonet. All rights reserved.</p>
+          <p>© 2023 DigiMonet. All rights reserved.</p>
         </div>
       </div>
     </div>

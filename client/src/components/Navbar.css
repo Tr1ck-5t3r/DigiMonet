@@ -7,11 +7,15 @@
     padding: 15px;
     width: 98%;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #242424aa;
+}
+.navbar:hover{
+    background-color: #1a1a1abb;
 }
 .nav-links{
     display: flex;
@@ -35,4 +39,12 @@
 }
 .nav-link:hover .underline{
     width: 100%;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.buttons button{
+    margin: 0px 5px;
 }

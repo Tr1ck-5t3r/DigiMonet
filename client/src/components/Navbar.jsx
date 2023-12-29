@@ -23,7 +23,11 @@ function Navbar() {
           <div className='underline'></div>
         </Link>
       </div>
-      <button className='button'>Sign Up</button>
+      <div className='buttons'>
+        <button className='button'>Raise $</button>
+        <button className='button'>Recieve $</button>
+        <button className='button'>Sign Up</button>
+      </div>
     </div>
   )
 }
