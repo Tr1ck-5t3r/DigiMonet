@@ -13,7 +13,7 @@ function Dashboard() {
           <div className="overview-cols">
             <img className="dash-icons" src={raised} alt="raised"/>
             <h4>Funds raised</h4>
-            <h1>0</h1>
+            <h1>$ 0</h1>
           </div>
           <div className="overview-cols">
             <img className="dash-icons" src={wallet} alt="wallet"/>

@@ -26,7 +26,9 @@ function Navbar() {
       <div className='buttons'>
         <button className='button'>Raise $</button>
         <button className='button'>Recieve $</button>
-        <button className='button'>Sign Up</button>
+        <Link to="/signin">
+          <button className='button'>Sign Up</button>
+        </Link>
       </div>
     </div>
   )

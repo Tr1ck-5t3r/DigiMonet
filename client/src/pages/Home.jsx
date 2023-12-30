@@ -1,3 +1,4 @@
+
 import hero from '../assets/hero.png'
 import './home.css'
 import News from '../components/News'
