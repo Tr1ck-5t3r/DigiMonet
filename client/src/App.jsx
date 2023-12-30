@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Dashboard from './pages/Dashboard'
-import Services from './pages/Services'
 import NoMatch from './pages/NoMatch'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -24,7 +23,7 @@ fcl.config()
 
 const SignIn = () => {
   console.log("Hello");
-  fcl.authenticate();
+  fcl.authenticate(); 
 }
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signout" element={<Signout />} />

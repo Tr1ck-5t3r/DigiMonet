@@ -26,9 +26,10 @@ function Raise() {
                     <input className="input-form" type="text" required=""/>
                     <label>Phone Number</label>
                 </div>
-                  <textarea id="description" name="description" className='textarea-raise' required></textarea>
-                  <label htmlFor="description">Description</label>
-                    <br></br>
+                <textarea id="description" name="description" className='textarea-raise' placeholder='Describe you emergency here.' required></textarea>
+                <br />
+                <input type="file" className="input-file" id="myFile" name="filename" />
+                <br/>
                 <button type="submit" className='button-raised' value="Submit">Submit</button>
             </form>
         </div>

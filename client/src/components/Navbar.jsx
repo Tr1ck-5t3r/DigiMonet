@@ -14,8 +14,8 @@ function Navbar() {
           About
           <div className='underline'></div>
         </Link>
-        <Link className="nav-link" to="/services">
-          Services
+        <Link className="nav-link" to="/donate">
+          Donate
           <div className='underline'></div>
         </Link>
         <Link className="nav-link" to="/dashboard">
@@ -24,8 +24,9 @@ function Navbar() {
         </Link>
       </div>
       <div className='buttons'>
-        <button className='button'>Raise $</button>
-        <button className='button'>Recieve $</button>
+        <Link to="/raise">
+          <button className='button'>Raise $</button>
+        </Link>
         <Link to="/signin">
           <button className='button'>Sign Up</button>
         </Link>
