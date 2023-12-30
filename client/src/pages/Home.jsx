@@ -1,10 +1,17 @@
-import APPID from "../components/AppId"
 
+import hero from '../assets/hero.png'
+import './home.css'
+import News from '../components/News'
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-      <button onClick={() => {APPID()}}>Click Here</button>
+    <div className="Home">
+      <div className="hero">
+        <img className="hero-img" src={hero} alt="hero" />
+      </div>
+      <div className="newsletter">
+        <h1>Around the World today</h1>
+        <News />
+      </div>
     </div>
   )
 }

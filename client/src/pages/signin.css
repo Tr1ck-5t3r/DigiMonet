@@ -1,0 +1,30 @@
+.login{
+    width: 100%;
+    padding: 70px 0px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signin{
+    width: 60vw;
+    padding: 50px;
+    background-color: #6d6d6d13;
+    border-radius: 10px;
+    border: 1px solid #ffffff13;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.signin-left{
+    width: 40vw;
+}
+.signin-left form .input-group {
+    margin: 30px 0px ;
+}
+.signin-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
