@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@onflow/dev-wallet": "^0.0.10",
     "@onflow/fcl": "^1.9.0",
     "@onflow/types": "^1.2.1",
     "@reduxjs/toolkit": "^2.0.1",

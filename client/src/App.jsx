@@ -13,12 +13,9 @@ import Logo from "./assets/nav-logo.png"
 
 
 fcl.config()
-  .put("accessNode.api", "https://access-testnet.onflow.org")
-  .put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn")
-  .put("flow.network", "testnet")
-  .put("app.detail.title", "DigiMonate")
-  .put("app.detail.icon",Logo)
-
+  .put("accessNode.api", "http://localhost:8888")
+  .put("challenge.handshake", "http://localhost:8701/flow/authenticate")
+  
 const SignIn = () => {
   console.log("Hello");
   fcl.authenticate();
