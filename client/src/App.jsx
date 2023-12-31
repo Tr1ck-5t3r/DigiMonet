@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import * as fcl from '@onflow/fcl'
 import Raise from './pages/Raise'
+import Donating from './pages/Donating'
 import Donate from './pages/Donate'
 import Logo from "./assets/nav-logo.png"
 import { useEffect, useState } from 'react'
@@ -50,6 +51,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/raise" element={<Raise />} />
               <Route path="/donate" element={<Donate />} />
+              <Route path='/donate/:id' element={<Donating />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>
