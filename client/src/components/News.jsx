@@ -8,7 +8,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 const newsgetter = async () => {
   try {
     const apiKey = "86e12056f20849798a2d8e52ff63dda7";
-    const url = `https://newsapi.org/v2/top-headlines? apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`;
     const response = await fetch(url);
 
     if (!response.ok) {

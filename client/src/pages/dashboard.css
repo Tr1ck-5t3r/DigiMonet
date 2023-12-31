@@ -48,13 +48,13 @@
 }
 .history-row{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 10px;
     border: 1px solid #ffffff13;
 }
 .history-row p{
-    margin: 0px 10px;
+    margin: 0px 20px;
 }
 .history-row:hover{
     background-color: #6d6d6d23;
