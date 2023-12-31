@@ -10,7 +10,7 @@ function Home() {
       </div>
       <div className="newsletter">
         <h1>Around the World today</h1>
-        <News />
+        {/* <News /> */}
       </div>
     </div>
   )

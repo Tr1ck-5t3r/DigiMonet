@@ -1,5 +1,5 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useAsyncError } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Dashboard from './pages/Dashboard'
@@ -7,39 +7,51 @@ import NoMatch from './pages/NoMatch'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import * as fcl from '@onflow/fcl'
-import Signin from './pages/Signin'
-import Signout from './pages/Signout'
 import Raise from './pages/Raise'
 import Donate from './pages/Donate'
 import Logo from "./assets/nav-logo.png"
-
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 fcl.config()
-  .put("accessNode.api", "http://localhost:8888")
-  .put("challenge.handshake", "http://localhost:8701/flow/authenticate")
+  .put("accessNode.api", "https://access-testnet.onflow.org")
+  .put("challenge.handshake", "https://fcl-discovery.onflow.org/testnet/authn")
   
 const SignIn = () => {
   console.log("Hello");
   fcl.authenticate(); 
 }
 
+const SignOut = () => { 
+  fcl.unauthenticate(); 
+  useNavigate("/");
+}
+
 function App() {
+  const [user, setUser] = useState({ loggedIn: null, amount: 0 });
+  const [amount, setAmount] = useState(0);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fcl.currentUser.subscribe(setUser);
+    if (user.loggedIn) { navigate("/dashboard"); }
+    else navigate("/");
+    setAmount(1000);
+  },[user.loggedIn])
+  console.log(user);
   return (
     <>
-      <Navbar />
-      <div className='move-down'> 
-              <button onClick={() => {SignIn()}}>hello</button>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signout" element={<Signout />} />
-          <Route path="/raise" element={<Raise />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
-      </div>
+      <Navbar user={user} signin={SignIn} signout={SignOut} />
+          <div className='move-down'>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/dashboard" element={<Dashboard amount={amount} />} />
+              <Route path="/raise" element={<Raise />} />
+              <Route path="/donate" element={<Donate />} />
+              <Route path="*" element={<NoMatch />} />
+            </Routes>
+          </div>
       <Footer />
       
     </>
