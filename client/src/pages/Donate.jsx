@@ -1,12 +1,11 @@
 import './donate.css'
-import placeholder from '../assets/placeholder.png'
-import Afghanistan from "../assets/Afghanistan.png"
-import Libya from "../assets/Libya.png"
-import Congo from "../assets/Congo.jpg"
+import Afghanistan from '../assets/Afghanistan.png'
+import Libya from '../assets/Libya.png'
+import Congo from '../assets/Congo.jpg'
+import haiti from '../assets/Haiti_Earthquake_10.jpg'
+import hawai from '../assets/Hawaii_fire.png'
+import china from '../assets/Hankow_city_hall.jpg'
 import { Link } from 'react-router-dom'
-
-const values = {}
-
 
 function Donate() {
   
@@ -30,22 +29,22 @@ function Donate() {
       "image": Congo,
     },
     4:{
-    "name": "Story 4",
+    "name": "Haiti Earthquake",
       "id": 4,
-      "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      "image": placeholder,
+      "Description": "A massive Earthquake with a magnitude of 7.2 on the richter scale has hit Hiati leading to massive loss of life and property.",
+      "image": haiti,
     },
     5:{
-      "name": "Story 5",
+      "name": "Hawaiin Wildfire",
       "id": 5,
-      "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      "image": placeholder,
+      "Description": "A lack of rains and heavy winds during the summer season has led to a huge wildfire in Hawaii with a area of 100 Sq.Kms damaged and around a 100 estimated casualties ",
+      "image": hawai,
     },
     6:{
-      "name": "Story 6",
+      "name": "China Floods",
       "id": 6,
-      "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      "image": placeholder,
+      "Description": "A period of heavy rains in China has led to the dangerous rise in water levels of the rivers Yangtze and Huai leading to the displacement of many.",
+      "image": china,
     },
   }
   return (
@@ -64,7 +63,7 @@ function Donate() {
                       {donatelist[key].Description}
                     </p>
                   </div>
-                  <Link to={`/donating/${donatelist[key].id}`} className='button'>Donate</Link>
+                  <Link to={`/donate/${donatelist[key].id}`} className='button'>Donate</Link>
                 </div>
               )
             })

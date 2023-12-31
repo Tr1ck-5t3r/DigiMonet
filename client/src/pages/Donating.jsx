@@ -1,10 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useState } from 'react'
+import Afghanistan from '../assets/Afghanistan.png'
+import Libya from '../assets/Libya.png'
+import Congo from '../assets/Congo.jpg'
+import haiti from '../assets/Haiti_Earthquake_10.jpg'
+import hawai from '../assets/Hawaii_fire.png'
+import china from '../assets/Hankow_city_hall.jpg'
+import { useDispatch } from 'react-redux'
+import { setuseraddr,setuseramount,setusermessage,setuserwallet } from "../features/userSlice";
 import './donating.css'
+import { useNavigate } from 'react-router-dom'
 
-function Donating() {
+function Donating({ user }) {
+  const navigate = useNavigate();
+  const useractions = useDispatch();
   const id = useParams();
-  console.log(id);
   const donatelist = {
     1:{
       "name": "Libyan Storm",
@@ -25,22 +35,22 @@ function Donating() {
       "image": Congo,
     },
     4:{
-    "name": "Story 4",
+    "name": "Haiti Earthquake",
       "id": 4,
-      "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      "image": placeholder,
+      "Description": "A massive Earthquake with a magnitude of 7.2 on the richter scale has hit Hiati leading to massive loss of life and property.",
+      "image": haiti,
     },
     5:{
-      "name": "Story 5",
+      "name": "Hawaiin Wildfire",
       "id": 5,
-      "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      "image": placeholder,
+      "Description": "A lack of rains and heavy winds during the summer season has led to a huge wildfire in Hawaii with a area of 100 Sq.Kms damaged and around a 100 estimated casualties ",
+      "image": hawai,
     },
     6:{
-      "name": "Story 6",
+      "name": "China Floods",
       "id": 6,
-      "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      "image": placeholder,
+      "Description": "A period of heavy rains in China has led to the dangerous rise in water levels of the rivers Yangtze and Huai leading to the displacement of many.",
+      "image": china,
     },
   }
     const [donate, setDonate] = useState(0);
@@ -48,6 +58,50 @@ function Donating() {
     const [donateName, setDonateName] = useState("");
     const [donateMessage, setDonateMessage] = useState("");
     const [donateWallet, setDonateWallet] = useState("");
+  const Amtded = (e) => {
+      e.preventDefault();
+      const amount = e?.target?.value;
+      console.log(amount);
+      if (amount !== undefined) {
+    setDonateAmount(amount);
+    useractions(setuseramount(amount));
+  }
+}
+
+  const DonateNameHandler = (e) => {
+  console.log(e);
+  const name = e?.target?.value;
+  if (name !== undefined) {
+    setDonateName(name);
+    useractions(setuseraddr(name));
+  }
+}
+
+const DonateMessageHandler = (e) => {
+  const message = e?.target?.value;
+  if (message !== undefined) {
+    setDonateMessage(message);
+    useractions(setusermessage(message));
+  }
+}
+
+const DonateWalletHandler = (e) => {
+  const wallet = e?.target?.value;
+  if (wallet !== undefined) {
+    setDonateWallet(wallet);
+    useractions(setuserwallet(wallet));
+  }
+}
+
+  const calls = (e) => {
+    e.preventDefault();
+    useractions(setuseramount(100));
+    console.log(donateAmount);
+    console.log(donateName);
+    console.log(donateMessage);
+    console.log(donateWallet);
+    navigate("/dashboard");
+  }
   return (
     <div className="donating">
       <div className="donating-container">
@@ -55,24 +109,20 @@ function Donating() {
         <h3>{donatelist[id.id].name}</h3>
         <p>{donatelist[id.id].Description}</p>
         <br/>
-        <form>
+        <form onSubmit={calls}>
           <div className="input-group">
-            <input className="input-form" type="text" required=""/>
-            <label>Name</label>
+            <input className="input-form" type="text" required="" onChange={DonateNameHandler} placeholder="Name"/>
           </div>
           <div className="input-group">
-            <input className="input-form" type="text" required="" placeholder=""/>
-            <label>Wallet Address</label>
+            <input className="input-form" type="text" required="" value={user} onChange={DonateWalletHandler} />
           </div>
           <div className="input-group">
-            <input className="input-form" type="number" required=""/>
-            <label>Amount</label>
+            <input className="input-form" type="number" required="" placeholder="amount " onChange={(e)=>Amtded}/>
           </div>
           <div className="input-group">
-            <input className="input-form" type="text" required=""/>
-            <label>Message</label>
+            <input className="input-form" type="text" required="" placeholder="enter your message" onChange={DonateMessageHandler} />
           </div>
-          <button className="button">Donate</button>
+          <button className="button" >Donate</button>
         </form>
       </div>
     </div>

@@ -50,7 +50,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard amount={amount} />} />
               <Route path="/raise" element={<Raise />} />
               <Route path="/donate" element={<Donate />} />
-              <Route path='/donate/:id' element={<Donating />} />
+          <Route path='/donate/:id' element={<Donating user={user.addr} />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>

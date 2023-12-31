@@ -10,8 +10,10 @@ import Haiti from "../assets/Haiti_Earthquake_10.jpg"
 import Rwanda from "../assets/Rwanda.jpg"
 import Cyclone from "../assets/Mocha.jpg"
 import Nepal from "../assets/Nepal.jpg"
-
+import { useSelector } from 'react-redux'
 function Dashboard({ amount }) {
+  const user = useSelector((state) => state.user.amount);
+  console.log(user);
   return (
     <div className="dashboard">
       <div className="dash1">
@@ -25,7 +27,7 @@ function Dashboard({ amount }) {
           <div className="overview-cols">
             <img className="dash-icons" src={wallet} alt="wallet"/>
             <h4>Wallet Balance</h4>
-            <h1>$ {amount || 0}</h1>
+            <h1>$ {amount-user || 0}</h1>
           </div>
           <div className="overview-cols">
             <img className="dash-icons" src={sent} alt="sent"/>

@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    username: "",
+    useraddr: "",
+    wallet: "",
+    amount: 0,
     isloggedin: false,
-    startlogin: false,
+    message: "",
 };
 
 const userSlice = createSlice({
@@ -18,15 +20,21 @@ const userSlice = createSlice({
             state.username = "";
             state.isloggedin = false;
         },
-        loginstart: (state) => {
-            state.startlogin = true;
+        setuseraddr: (state, action) => {
+            state.useraddr = action.payload;
         },
-        loginend: (state) => {
-            state.startlogin = false;
+        setuserwallet: (state, action) => {
+            state.wallet = action.payload;
         },
+        setuseramount: (state, action) => {
+            state.amount = action.payload;
+        },
+        setusermessage: (state, action) => {
+            state.message = action.payload;
+        }
     },
 });
 
-export const { login, logout, loginend,loginstart} = userSlice.actions;
+export const { login, logout, setuseraddr, setusermessage, setuseramount, setuserwallet } = userSlice.actions;
 
 export default userSlice.reducer;
