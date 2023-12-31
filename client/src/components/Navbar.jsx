@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/nav-logo.png';
 import './Navbar.css';
-function Navbar() {
+
+function Navbar({ user, signin, signout }) {
+
+
   return (
     <div className='navbar'>
       <img src={logo} className='logo-nav' alt="logo" />
@@ -27,9 +30,10 @@ function Navbar() {
         <Link to="/raise">
           <button className='button'>Raise $</button>
         </Link>
-        <Link to="/signin">
-          <button className='button'>Sign Up</button>
-        </Link>
+        {!user.loggedIn ?
+          <button className='button' onClick={signin}>Sign In</button>
+          :
+          <button className='button' onClick={signout}>Sign Out</button>}
       </div>
     </div>
   )
